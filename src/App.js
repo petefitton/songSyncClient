@@ -46,7 +46,7 @@ function App() {
 
   return (
     <div>
-      <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
+      {/* <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} /> */}
       <div>
         <Switch>
           <Route path="/signup" component={Signup} />
@@ -58,7 +58,7 @@ function App() {
           <Route exact path="/" component={Home} />
         </Switch>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
