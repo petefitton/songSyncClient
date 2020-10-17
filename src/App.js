@@ -2,16 +2,13 @@ import React, {useEffect, useState} from 'react'
 import {Switch, Route, Redirect} from 'react-router-dom'
 import jwtDecode from 'jwt-decode'
 import setAuthToken from './utils/setAuthToken'
-// import Navbar from './components/Navbar'
 import Signup from './components/Signup'
 import Login from './components/Login'
 import Profile from './components/Profile'
-import Home from './components/Home'
 import Logout from './components/Logout'
 import UpdateInfo from './components/UpdateInfo'
 import CreateRoom from './components/CreateRoom'
 import JoinRoom from './components/JoinRoom'
-// import Footer from './components/Footer'
 import './App.css'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -21,52 +18,54 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 
 function App() {
   let [currentUser, setCurrentUser] = useState("")
-  let [isAuthenticated, setIsAuthenticated] = useState(false)
+  // let [isAuthenticated, setIsAuthenticated] = useState(false)
 
   useEffect(() => {
     let token
     if (!localStorage.getItem('jwtToken')) {
-      setIsAuthenticated(false)
+      // setIsAuthenticated(false)
     } else {
       token = jwtDecode(localStorage.getItem('jwtToken'))
       setAuthToken(localStorage.jwtToken)
       setCurrentUser(token)
-      setIsAuthenticated(true)
+      // setIsAuthenticated(true)
     }
   }, [])
 
   const nowCurrentUser = (userData) => {
     setCurrentUser(userData)
-    setIsAuthenticated(true)
+    // setIsAuthenticated(true)
   }
 
   const handleLogout = () => {
     if (localStorage.getItem('jwtToken')) {
       localStorage.removeItem('jwtToken')
       setCurrentUser(null)
-      setIsAuthenticated(false)
+      // setIsAuthenticated(false)
     }
   }
 
   return (
     <div>
-      {/* <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} /> */}
       <div>
         <Switch>
           <Route path="/signup" component={Signup} />
           <Route 
             path="/login" 
-            render={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>} 
+            render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} user={currentUser}/>} 
           />
           <Route path="/logout" render={() => <Logout handleLogout={handleLogout} />} />
           <PrivateRoute path="/profile" component={Profile} user={currentUser} />
-          <Route path="/update-info" render={() => <UpdateInfo />} />
-          <Route path="/create-room" render={() => <CreateRoom />} />
-          <Route path="/join-room" render={() => <JoinRoom />} />
-          <Route exact path="/" component={Home} />
+          <PrivateRoute path="/update-info" component={UpdateInfo} user={currentUser} />
+          <PrivateRoute path="/create-room" component={CreateRoom} user={currentUser} />
+          <PrivateRoute path="/join-room" component={JoinRoom} user={currentUser} />
+          <Route
+            exact
+            path="/"
+            render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} user={currentUser}/>}
+          />
         </Switch>
       </div>
-      {/* <Footer /> */}
     </div>
   )
 }

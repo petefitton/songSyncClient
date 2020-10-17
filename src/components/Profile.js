@@ -11,7 +11,7 @@ const Profile = (props) => {
   (<div>
     <h1>Profile</h1>
     <h2>Your Rooms</h2>
-    {rooms[0] != '' ? rooms.map((room, idx) => {
+    {rooms[0] !== '' ? rooms.map((room, idx) => {
       return <Room roomname={room} key="idx" />
     }) : <></>}
   </div>)

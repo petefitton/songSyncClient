@@ -1,6 +1,7 @@
 import React from 'react'
 
-function JoinRoom() {
+function JoinRoom(props) {
+  console.log(props.location.state.room)
 
   return (
     <>
