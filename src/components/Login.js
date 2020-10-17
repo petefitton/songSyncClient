@@ -1,8 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import setAuthToken from '../utils/setAuthToken'
 import {Redirect} from 'react-router-dom'
+import LoginBtn from './LoginBtn'
+import SignupBtn from './SignupBtn'
 
 const Login = (props) => {
   let [username, setUsername] = useState('')
@@ -38,17 +40,19 @@ const Login = (props) => {
     <div>
       <div>
         <div>
-          <h2>Login</h2>
+          <h1>Song Sync</h1>
+          <div className="signLogDiv">
+            <SignupBtn />
+            <LoginBtn />
+          </div>
           <form onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="username">Username</label>
-              <input type="text" name="username" value={username} onChange={handleUsername} required />
+              <input type="text" name="username" value={username} onChange={handleUsername} placeholder="Username" />
             </div>
             <div>
-              <label htmlFor="password">Password</label>
-              <input type="password" name="password" value={password} onChange={handlePassword} required />
+              <input type="password" name="password" value={password} onChange={handlePassword} placeholder="Password" />
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit">Login</button>
           </form>
         </div>
       </div>

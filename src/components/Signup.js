@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import {Redirect} from 'react-router-dom'
 import axios from 'axios'
+import SignupBtn from './SignupBtn'
+import LoginBtn from './LoginBtn'
 
 const Signup = () => {
   let [username, setUsername] = useState('')
@@ -45,25 +47,25 @@ const Signup = () => {
     <div>
       <div>
         <div>
-          <h2>Signup</h2>
+          <h1>Song Sync</h1>
+          <div className="signLogDiv">
+            <SignupBtn />
+            <LoginBtn />
+          </div>
           <form onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="username">Username</label>
-              <input type="text" name="username" value={username} onChange={handleUsername}/>
+              <input type="text" name="username" value={username} onChange={handleUsername} placeholder="Username" />
             </div>
             <div>
-              <label htmlFor="password">Password</label>
-              <input type="password" name="password" value={password} onChange={handlePassword}/>
+              <input type="password" name="password" value={password} onChange={handlePassword} placeholder="Password" />
             </div>
             <div>
-              <label htmlFor="confirmPassword">Confirm Password</label>
-              <input type="password" name="confirmPassword" value={confirmPassword} onChange={handleConfirmPassword}/>
+              <input type="password" name="confirmPassword" value={confirmPassword} onChange={handleConfirmPassword} placeholder="Confirm Password" />
             </div>
             <div>
-              <label htmlFor="email">Email</label>
-              <input type="email" name="email" value={email} onChange={handleEmail}/>
+              <input type="email" name="email" value={email} onChange={handleEmail} placeholder="Email" />
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit">Signup</button>
           </form>
         </div>
       </div>

@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+h1, h2 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signLogDiv {
+  display: flex;
+  justify-content: center;
+}
