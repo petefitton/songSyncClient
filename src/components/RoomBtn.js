@@ -1,9 +1,10 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const Room = (props) => {
   return (
     <div>
-      <h1>Socket Connection</h1>
+      <Link to={"/"+props.roomname}>{props.roomname}</Link>
     </div>
   )
 }

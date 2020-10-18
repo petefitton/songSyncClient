@@ -40,7 +40,7 @@ function CreateRoom(props) {
     })
   }
 
-  if (redirect) return <Redirect to={{pathname: "/join-room", state: {room: createdRoom} }} />
+  if (redirect) return <Redirect to={{pathname: "/join-room-password", state: {room: createdRoom} }} />
 
   return (
     <>

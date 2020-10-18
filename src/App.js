@@ -9,6 +9,8 @@ import Logout from './components/Logout'
 import UpdateInfo from './components/UpdateInfo'
 import CreateRoom from './components/CreateRoom'
 import JoinRoom from './components/JoinRoom'
+import JoinRoomPassword from './components/JoinRoomPassword'
+import Room from './components/Room'
 import './App.css'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -59,6 +61,8 @@ function App() {
           <PrivateRoute path="/update-info" component={UpdateInfo} user={currentUser} />
           <PrivateRoute path="/create-room" component={CreateRoom} user={currentUser} />
           <PrivateRoute path="/join-room" component={JoinRoom} user={currentUser} />
+          <PrivateRoute path="/join-room-password" component={JoinRoomPassword} user={currentUser} />
+          <PrivateRoute path="/room" component={Room} user={currentUser} />
           <Route
             exact
             path="/"

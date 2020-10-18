@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
-import Room from './Room'
+import RoomBtn from './RoomBtn'
 import ProfileActions from './ProfileActions'
 
 const Profile = (props) => {
@@ -12,7 +12,7 @@ const Profile = (props) => {
     <h1>Profile</h1>
     <h2>Your Rooms</h2>
     {rooms[0] !== '' ? rooms.map((room, idx) => {
-      return <Room roomname={room} key="idx" />
+      return <RoomBtn roomname={room} key="idx" />
     }) : <></>}
   </div>)
   : <h4>Loading...</h4>
@@ -25,7 +25,6 @@ const Profile = (props) => {
     )
   }
 
-  // axios call with useEffect to retrieve favorited rooms
   useEffect(() => {
     if (props.user) {
       axios.get(process.env.REACT_APP_SERVER_URL+'/users/profile/'+props.user.id)
