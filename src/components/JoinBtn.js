@@ -1,11 +1,10 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 
 function JoinBtn() {
 
   return (
     <>
-      <Link to="room">Join</Link>
+      <button type="submit">Join</button>
     </>
   )
 }

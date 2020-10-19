@@ -33,8 +33,8 @@ function JoinRoomPassword(props) {
         <div>
           <input type="password" name="password" value={password} onChange={handlePassword} placeholder="Room Password" />
         </div>
+        <JoinBtn />
       </form>
-      <JoinBtn />
       <CancelBtn />
       {err}
     </>

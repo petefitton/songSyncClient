@@ -16,7 +16,6 @@ function JoinRoom() {
 
   let formSubmit = (e) => {
     e.preventDefault()
-    console.log(roomname);
 
     // axios call to find out if room exists
     axios.post(process.env.REACT_APP_SERVER_URL+'/rooms/find', {roomname})
@@ -40,7 +39,7 @@ function JoinRoom() {
       <h1>Join</h1>
       <form onSubmit={formSubmit}>
         <input placeholder="Room Name" onChange={handleRoomname}></input>
-        <button type="submit">Join</button>
+        <JoinBtn />
       </form>
       <CancelBtn />
       {err}

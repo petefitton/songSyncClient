@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 const Room = (props) => {
   return (
     <div>
-      <Link to={"/"+props.roomname}>{props.roomname}</Link>
+      <Link to={{pathname: "/room", state: {roomInfo: props.roomInfo} }}>{props.roomInfo.name}</Link>
     </div>
   )
 }

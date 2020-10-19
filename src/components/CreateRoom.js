@@ -9,7 +9,7 @@ function CreateRoom(props) {
   let [roomIsPub, setRoomIsPub] = useState(true)
   let [redirect, setRedirect] = useState(false)
   let [err, setErr] = useState(<></>)
-  let [createdRoom, setCreatedRoom] = useState('')
+  let [createdRoom, setCreatedRoom] = useState(undefined)
 
   let handleRoomname = (e) => {
     setRoomname(e.target.value)
@@ -30,7 +30,7 @@ function CreateRoom(props) {
 
     axios.post(`${process.env.REACT_APP_SERVER_URL}/rooms/create`, roomData)
     .then(response => {
-      setCreatedRoom(response.data.name)
+      setCreatedRoom(response.data)
     }).then(() => {
       setRedirect(true)
     })
@@ -40,7 +40,7 @@ function CreateRoom(props) {
     })
   }
 
-  if (redirect) return <Redirect to={{pathname: "/join-room-password", state: {room: createdRoom} }} />
+  if (redirect && createdRoom) return <Redirect to={{pathname: "/join-room-password", state: {roomInfo: createdRoom} }} />
 
   return (
     <>
