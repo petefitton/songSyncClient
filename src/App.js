@@ -10,6 +10,7 @@ import UpdateInfo from './components/UpdateInfo'
 import CreateRoom from './components/CreateRoom'
 import JoinRoom from './components/JoinRoom'
 import JoinRoomPassword from './components/JoinRoomPassword'
+import PublicRooms from './components/PublicRooms'
 import Room from './components/Room'
 import './App.css'
 
@@ -62,6 +63,7 @@ function App() {
           <PrivateRoute path="/create-room" component={CreateRoom} user={currentUser} />
           <PrivateRoute path="/join-room" component={JoinRoom} user={currentUser} />
           <PrivateRoute path="/join-room-password" component={JoinRoomPassword} user={currentUser} />
+          <PrivateRoute path="/view-public-rooms" component={PublicRooms} user={currentUser} />
           <PrivateRoute path="/room" component={Room} user={currentUser} />
           <Route
             exact

@@ -86,7 +86,7 @@ const Room = (props) => {
     <div>
       <h1>{props.location.state.roomInfo.name}</h1>
       <div style={{display: "flex", justifyContent: "space-evenly"}}>
-        <LinkStyled path="/profile" btnColor="red" text="Leave Room" width="40%"></LinkStyled>
+        <LinkStyled path="/profile" btncolor="red" text="Leave Room" width="40%"></LinkStyled>
         <button
           onClick={handleSubBtn}
           style={{
@@ -106,14 +106,30 @@ const Room = (props) => {
           {subBtnText}
         </button>
       </div>
-      <div id="chatArea" style={{height: "200px", overflowX: "hidden", overflowY: "auto", maxWidth: "300px", margin: "0 auto"}}>
+      <div id="chatArea" style={{height: "50vh", overflowX: "hidden", overflowY: "auto", maxWidth: "300px", margin: "15px auto", padding: "5px", border: "2px solid black"}}>
         {msgs.length > 0 ? msgs.map((msg, idx) => {
-          return <p key={idx}>{msg.user.username}: {msg.content}</p>
+          return <p key={idx} style={{overflowWrap: "break-word"}}>{msg.user.username}: {msg.content}</p>
         }): <></>}
       </div>
       <form onSubmit={handleSubmit}>
         <textarea id="chatEntry" onChange={handleTextarea}></textarea>
-        <button type="submit">Send</button>
+        <button
+          type="submit"
+          style={{
+            backgroundColor: "blue",
+            padding: "5px",
+            borderRadius: "4px",
+            color: "white",
+            textDecoration: "none",
+            width: "220px",
+            textAlign: "center",
+            margin: "6px",
+            overflowWrap: "break-word",
+            border: "none",
+            fontSize: "16px",
+            marginTop: "20px"
+          }}
+        >Send</button>
       </form>
     </div>
   )

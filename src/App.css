@@ -51,3 +51,7 @@ form {
   display: flex;
   justify-content: center;
 }
+
+#chatEntry {
+  width: 220px;
+}

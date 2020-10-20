@@ -4,7 +4,7 @@ import LinkStyled from './LinkStyled'
 function SignupBtn() {
 
   return (
-    <LinkStyled path="/signup" text="Signup" btnColor="yellow" />
+    <LinkStyled path="/signup" text="Signup" btncolor="yellow" />
   )
 }
 

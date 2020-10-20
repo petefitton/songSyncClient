@@ -4,7 +4,23 @@ function JoinBtn() {
 
   return (
     <>
-      <button type="submit">Join</button>
+      <button
+        type="submit"
+        style={{
+          backgroundColor: "blue",
+          padding: "5px",
+          borderRadius: "4px",
+          color: "white",
+          textDecoration: "none",
+          width: "220px",
+          textAlign: "center",
+          margin: "6px",
+          overflowWrap: "break-word",
+          border: "none",
+          fontSize: "16px",
+          marginTop: "20px"
+        }}
+      >Join</button>
     </>
   )
 }

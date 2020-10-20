@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 
 const StyledLink = styled(Link)`
-  background-color: ${props => props.btnColor};
+  background-color: ${props => props.btncolor};
   padding: 5px;
   border-radius: 4px;
   color: white;
@@ -19,7 +19,7 @@ function LinkStyled(props) {
   return (
     <StyledLink
       to={{pathname: props.path, state: props.state}}
-      btnColor={props.btnColor}
+      btncolor={props.btncolor}
       width={props.width}
     >{props.text}</StyledLink>
   )

@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {Redirect} from 'react-router-dom'
 import CancelBtn from './CancelBtn'
 import JoinBtn from './JoinBtn'
+import bcrypt from 'bcryptjs'
 
 function JoinRoomPassword(props) {
   let [password, setPassword] = useState('')
@@ -19,11 +20,15 @@ function JoinRoomPassword(props) {
   let handleSubmit = (e) => {
     e.preventDefault()
 
-    if (password === props.location.state.roomInfo.password) {
-      setRedirect(true)
-    } else {
-      setErr(<p>Wrong Password</p>)
-    }
+    bcrypt.compare(password, props.location.state.roomInfo.password)
+    .then(isMatch => {
+      if (isMatch) {
+        setRedirect(true)
+      } else {
+        setErr(<p>Wrong Password</p>)
+      }
+    })
+    .catch(err => console.log(err))
   }
 
   return (

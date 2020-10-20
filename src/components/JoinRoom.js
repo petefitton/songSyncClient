@@ -41,7 +41,9 @@ function JoinRoom() {
         <input placeholder="Room Name" onChange={handleRoomname}></input>
         <JoinBtn />
       </form>
-      <CancelBtn />
+      <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+        <CancelBtn />
+      </div>
       {err}
     </>
   )
