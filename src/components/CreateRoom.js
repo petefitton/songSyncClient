@@ -60,10 +60,28 @@ function CreateRoom(props) {
         <div>
           <input type="password" name="roompassword" value={roompassword} onChange={handleRoompassword} placeholder="Room Password" />
         </div>
-        <button type="submit">Create</button>
+        <button
+          type="submit"
+          style={{
+            backgroundColor: "blue",
+            padding: "5px",
+            borderRadius: "4px",
+            color: "white",
+            textDecoration: "none",
+            width: "220px",
+            textAlign: "center",
+            margin: "6px",
+            overflowWrap: "break-word",
+            border: "none",
+            fontSize: "16px",
+            marginTop: "20px"
+          }}
+        >Create</button>
         {err}
       </form>
-      <CancelBtn />
+      <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+        <CancelBtn />
+      </div>
     </>
   )
 }

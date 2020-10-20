@@ -65,7 +65,23 @@ const Signup = () => {
             <div>
               <input type="email" name="email" value={email} onChange={handleEmail} placeholder="Email" />
             </div>
-            <button type="submit">Signup</button>
+            <button
+              type="submit"
+              style={{
+                backgroundColor: "blue",
+                padding: "5px",
+                borderRadius: "4px",
+                color: "white",
+                textDecoration: "none",
+                width: "220px",
+                textAlign: "center",
+                margin: "6px",
+                overflowWrap: "break-word",
+                border: "none",
+                fontSize: "16px",
+                marginTop: "20px"
+              }}
+            >Signup</button>
           </form>
         </div>
       </div>

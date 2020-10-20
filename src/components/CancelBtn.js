@@ -1,12 +1,10 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import LinkStyled from './LinkStyled'
 
 function CancelBtn() {
 
   return (
-    <>
-      <Link to="/profile">Cancel</Link>
-    </>
+    <LinkStyled path="/profile" text="Cancel" btnColor="red" />
   )
 }
 

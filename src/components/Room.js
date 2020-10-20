@@ -1,12 +1,10 @@
 import axios from 'axios'
 import React, {useState, useEffect} from 'react'
-import {Link} from 'react-router-dom'
+import LinkStyled from './LinkStyled'
 import socketIOClient from 'socket.io-client'
 const socket = socketIOClient(process.env.REACT_APP_SERVER_URL)
 
 const Room = (props) => {
-  // console.log(props)
-  // let [response, setResponse] = useState('')
   let [msgs, setMsgs] = useState([])
   let [textarea, setTextarea] = useState('')
   let [subBtnText, setSubBtnText] = useState('')
@@ -87,10 +85,27 @@ const Room = (props) => {
   return (
     <div>
       <h1>{props.location.state.roomInfo.name}</h1>
-      <Link to="/profile">Leave Room</Link>
-      <button onClick={handleSubBtn}>
-        {subBtnText}
-      </button>
+      <div style={{display: "flex", justifyContent: "space-evenly"}}>
+        <LinkStyled path="/profile" btnColor="red" text="Leave Room" width="40%"></LinkStyled>
+        <button
+          onClick={handleSubBtn}
+          style={{
+            backgroundColor: "blue",
+            padding: "5px",
+            borderRadius: "4px",
+            color: "white",
+            textDecoration: "none",
+            width: "45%",
+            textAlign: "center",
+            margin: "6px",
+            overflowWrap: "break-word",
+            border: "none",
+            fontSize: "16px",
+          }}
+        >
+          {subBtnText}
+        </button>
+      </div>
       <div id="chatArea" style={{height: "200px", overflowX: "hidden", overflowY: "auto", maxWidth: "300px", margin: "0 auto"}}>
         {msgs.length > 0 ? msgs.map((msg, idx) => {
           return <p key={idx}>{msg.user.username}: {msg.content}</p>

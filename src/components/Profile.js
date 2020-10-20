@@ -9,11 +9,12 @@ const Profile = (props) => {
 
   const userData = props.user ? 
   (<div>
-    <h1>Profile</h1>
     <h2>Your Rooms</h2>
-    {rooms[0] !== '' ? rooms.map((room, idx) => {
-      return <RoomBtn roomInfo={room} key={idx} />
-    }) : <></>}
+    <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+      {rooms[0] !== '' ? rooms.map((room, idx) => {
+        return <RoomBtn roomInfo={room} key={idx} />
+      }) : <></>}
+    </div>
   </div>)
   : <h4>Loading...</h4>
 
@@ -36,6 +37,7 @@ const Profile = (props) => {
   
   return (
     <div>
+      <h1 style={{marginTop: "40px"}}>Profile</h1>
       {props.user ? userData : errorDiv()}
       <ProfileActions />
     </div>

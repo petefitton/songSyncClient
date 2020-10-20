@@ -1,12 +1,10 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import LinkStyled from './LinkStyled'
 
 function SignupBtn() {
 
   return (
-    <>
-      <Link to="/signup">Signup</Link>
-    </>
+    <LinkStyled path="/signup" text="Signup" btnColor="yellow" />
   )
 }
 
