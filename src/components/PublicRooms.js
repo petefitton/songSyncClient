@@ -23,7 +23,7 @@ function PublicRooms() {
       {err}
       <div style={{display: "flex", flexDirection: "column", alignItems: "center", overflowY: "auto", maxHeight: "84vh"}}>
         {pubRooms.length ? pubRooms.map((room, idx) => {
-          return <RoomBtn roomInfo={room} />
+          return <RoomBtn roomInfo={room} key={idx} />
         })
         : <></>}
       </div>
