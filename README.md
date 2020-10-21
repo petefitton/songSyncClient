@@ -14,10 +14,10 @@ Github Server Link:
 
 #### User Stories
 
-#### Wireframes
-![Wireframes](/SongSync.pdf)
+#### Initial Wireframes
+![Wireframes](/SongSync.jpg)
 
-#### ERDs
+#### Initial ERDs
 ![ERDs](/SongSync2.jpg)
 
 #### Sources
