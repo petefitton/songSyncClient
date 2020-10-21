@@ -1,4 +1,26 @@
-##### Sources
+# Song Sync
+
+Deployed Website Link: 
+
+Github Server Link: 
+
+## Screenshots
+
+## Technologies Used
+
+## Planning
+
+#### Elevator Pitch
+
+#### User Stories
+
+#### Wireframes
+![Wireframes](/SongSync.pdf)
+
+#### ERDs
+![ERDs](/SongSync2.jpg)
+
+#### Sources
 
 Socket.IO Docs: https://socket.io/docs/
 Sequelize Docs: https://sequelize.org/master/
