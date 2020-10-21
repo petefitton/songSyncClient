@@ -20,13 +20,22 @@ function CreateRoom(props) {
   }
 
   let handleRoomIsPub = (e) => {
-    setRoomIsPub(e.target.value)
+    if (e.target.value === "true") {
+      setRoomIsPub(true)
+    } else if (e.target.value === "false") {
+      setRoomIsPub(false)
+    }
   }
 
   let handleSubmit = (e) => {
     e.preventDefault()
 
-    const roomData = {roomname, roomIsPub, roompassword, roomOwner: props.user.id}
+    let roomData
+
+    roomIsPub ?
+    roomData = {roomname, roomIsPub, roompassword: '', roomOwner: props.user.id}
+    :
+    roomData = {roomname, roomIsPub, roompassword, roomOwner: props.user.id}
 
     axios.post(`${process.env.REACT_APP_SERVER_URL}/rooms/create`, roomData)
     .then(response => {
@@ -50,15 +59,15 @@ function CreateRoom(props) {
           <input type="text" name="roomname" value={roomname} onChange={handleRoomname} placeholder="Room Name" />
         </div>
         <div>
-          <input type="radio" id="public" name="pubPriv" value="true" onChange={handleRoomIsPub} checked />
+          <input type="radio" id="public" name="pubPriv" value="true" onChange={handleRoomIsPub} checked={roomIsPub} />
           <label htmlFor="public">Public</label>
         </div>
         <div>
-          <input type="radio" id="private" name="pubPriv" value="false" onChange={handleRoomIsPub} />
+          <input type="radio" id="private" name="pubPriv" value="false" onChange={handleRoomIsPub} checked={!roomIsPub} />
           <label htmlFor="private">Private</label>
         </div>
         <div>
-          <input type="password" name="roompassword" value={roompassword} onChange={handleRoompassword} placeholder="Room Password" />
+          <input type="password" name="roompassword" value={roompassword} onChange={handleRoompassword} placeholder="Room Password" disabled={roomIsPub} />
         </div>
         <button
           type="submit"

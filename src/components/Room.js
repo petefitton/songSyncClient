@@ -82,6 +82,12 @@ const Room = (props) => {
     }
   }
 
+  let enterHandler = (e) => {
+    if (e.keyCode === 13 && !e.shiftKey) {
+      handleSubmit(e)
+    }
+  }
+
   return (
     <div>
       <h1>{props.location.state.roomInfo.name}</h1>
@@ -106,13 +112,13 @@ const Room = (props) => {
           {subBtnText}
         </button>
       </div>
-      <div id="chatArea" style={{height: "50vh", overflowX: "hidden", overflowY: "auto", maxWidth: "300px", margin: "15px auto", padding: "5px", border: "2px solid black"}}>
+      <div id="chatArea" style={{height: "50vh", overflowX: "hidden", overflowY: "auto", maxWidth: "300px", margin: "15px auto", padding: "5px", border: "2px solid black", whiteSpace: "pre-wrap"}}>
         {msgs.length > 0 ? msgs.map((msg, idx) => {
-          return <p key={idx} style={{overflowWrap: "break-word"}}>{msg.user.username}: {msg.content}</p>
+          return <p key={idx} style={{overflowWrap: "break-word"}}><strong>{msg.user.username}</strong><br></br>{msg.content}</p>
         }): <></>}
       </div>
       <form onSubmit={handleSubmit}>
-        <textarea id="chatEntry" onChange={handleTextarea}></textarea>
+        <textarea id="chatEntry" onChange={handleTextarea} onKeyDown={enterHandler} value={textarea}></textarea>
         <button
           type="submit"
           style={{
