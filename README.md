@@ -1,8 +1,8 @@
 # Song Sync
 
-Deployed Website Link: 
+Deployed Website Link: https://songsyncapp.herokuapp.com/
 
-Github Server Link: 
+Github Server Link: https://github.com/petefitton/songSyncServer/tree/main
 
 ## Screenshots
 
