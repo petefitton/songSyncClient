@@ -65,11 +65,8 @@ function App() {
           <PrivateRoute path="/join-room-password" component={JoinRoomPassword} user={currentUser} />
           <PrivateRoute path="/view-public-rooms" component={PublicRooms} user={currentUser} />
           <PrivateRoute path="/room" component={Room} user={currentUser} />
-          <Route
-            exact
-            path="/"
-            render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} user={currentUser}/>}
-          />
+          <Route exact path="/" component={Signup} />
+          <PrivateRoute path="/*" component={Profile} user={currentUser} />
         </Switch>
       </div>
     </div>
