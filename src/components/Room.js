@@ -11,19 +11,35 @@ const Room = (props) => {
 
   useEffect(() => {
     // get initial chatroom messages
+    let mounted = true
     let verificationData = {user: props.user, room: props.location.state.roomInfo}
     axios.post(process.env.REACT_APP_SERVER_URL+'/rooms/msgInit', verificationData)
     .then(response => {
-      setMsgs(response.data)
+      if (mounted) {
+        setMsgs(response.data)
+      }
     })
+    .catch(err => console.log(err))
+
+    // cleanup
+    return () => {
+      mounted = false
+    }
   }, [props.user, props.location.state.roomInfo])
 
   useEffect(() => {
+    let mounted = true
     socket.on('RECEIVE_MESSAGE', data => {
-      setMsgs(msgs => msgs.concat([data]))
-      setTextarea('')
-      document.getElementById('chatEntry').value = ''
+      if (mounted) {
+        setMsgs(msgs => msgs.concat([data]))
+        setTextarea('')
+        document.getElementById('chatEntry').value = ''
+      }
     })
+
+    return () => {
+      mounted = false
+    }
   }, [])
 
   let handleTextarea = (e) => {
@@ -48,16 +64,25 @@ const Room = (props) => {
   }, [msgs])
 
   useEffect(() => {
+    let mounted = true
     axios.post(process.env.REACT_APP_SERVER_URL+'/rooms/is-subscribed', {
       roomId: props.location.state.roomInfo.id,
       userId: props.user.id
     }).then(response => {
       if (response.data) {
-        setSubBtnText('Unsubscribe')
+        if (mounted) {
+          setSubBtnText('Unsubscribe')
+        }
       } else {
-        setSubBtnText('Subscribe')
+        if (mounted) {
+          setSubBtnText('Subscribe')
+        }
       }
     })
+    
+    return () => {
+      mounted = false
+    }
   }, [props.user.id, props.location.state.roomInfo.id])
 
   let handleSubBtn = (e) => {

@@ -33,9 +33,9 @@ function CreateRoom(props) {
     let roomData
 
     roomIsPub ?
-    roomData = {roomname, roomIsPub, roompassword: '', roomOwner: props.user.id}
+    roomData = {name: roomname, isPublic: roomIsPub, password: '', userId: props.user.id}
     :
-    roomData = {roomname, roomIsPub, roompassword, roomOwner: props.user.id}
+    roomData = {name: roomname, isPublic: roomIsPub, password: roompassword, userId: props.user.id}
 
     axios.post(`${process.env.REACT_APP_SERVER_URL}/rooms/create`, roomData)
     .then(response => {

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Redirect} from 'react-router-dom'
 import CancelBtn from './CancelBtn'
 import JoinBtn from './JoinBtn'
@@ -10,14 +10,24 @@ function JoinRoomPassword(props) {
   let [redirect, setRedirect] = useState(false)
   let [err, setErr] = useState(<></>)
 
-  if (props.location.state.roomInfo.password === '' || redirect) {
+  useEffect(() => {
+    if (props.location.state.roomInfo.password === '') {
+      handleRedirect()
+    }
+  }, [props.location.state.roomInfo.password])
+
+  if (redirect) {
+    return <Redirect to={{pathname: "/room", state: {roomInfo: props.location.state.roomInfo} }} />
+  }
+
+  let handleRedirect = () => {
     axios.post(process.env.REACT_APP_SERVER_URL+'/rooms/subscribe', {
       roomId: props.location.state.roomInfo.id,
       userId: props.user.id
     })
     .then(response => {
       if (response) {
-        return <Redirect to={{pathname: "/room", state: {roomInfo: props.location.state.roomInfo} }} />
+        setRedirect(true)
       }
     })
     .catch(err => console.log(err))
@@ -33,7 +43,7 @@ function JoinRoomPassword(props) {
     bcrypt.compare(password, props.location.state.roomInfo.password)
     .then(isMatch => {
       if (isMatch) {
-        setRedirect(true)
+        handleRedirect()
       } else {
         setErr(<p>Wrong Password</p>)
       }
