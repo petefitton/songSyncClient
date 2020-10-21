@@ -10,7 +10,7 @@ const Profile = (props) => {
   const userData = props.user ? 
   (<div>
     <h2>Your Rooms</h2>
-    <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+    <div className="profRoomsDiv" style={{display: "flex", flexDirection: "column", alignItems: "center", overflowY: "auto"}}>
       {rooms[0] !== '' ? rooms.map((room, idx) => {
         return <RoomBtn roomInfo={room} key={idx} />
       }) : <></>}

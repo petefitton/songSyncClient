@@ -55,3 +55,21 @@ form {
 #chatEntry {
   width: 220px;
 }
+
+.profActionsDiv {
+  bottom: 0;
+}
+
+.profRoomsDiv {
+  height: calc(100vh - 385px);
+}
+
+@media only screen and (max-height: 500px) {
+  .profActionsDiv {
+    bottom: auto;
+  }
+
+  .profRoomsDiv {
+    height: 138px;
+  }
+}

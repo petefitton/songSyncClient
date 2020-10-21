@@ -92,11 +92,11 @@ const Room = (props) => {
     <div>
       <h1>{props.location.state.roomInfo.name}</h1>
       <div style={{display: "flex", justifyContent: "space-evenly"}}>
-        <LinkStyled path="/profile" btncolor="red" text="Leave Room" width="40%"></LinkStyled>
+        <LinkStyled path="/profile" btncolor="#d80c0c" text="Leave Room" width="40%"></LinkStyled>
         <button
           onClick={handleSubBtn}
           style={{
-            backgroundColor: "blue",
+            backgroundColor: "#0808e5",
             padding: "5px",
             borderRadius: "4px",
             color: "white",
@@ -112,7 +112,7 @@ const Room = (props) => {
           {subBtnText}
         </button>
       </div>
-      <div id="chatArea" style={{height: "50vh", overflowX: "hidden", overflowY: "auto", maxWidth: "300px", margin: "15px auto", padding: "5px", border: "2px solid black", whiteSpace: "pre-wrap"}}>
+      <div id="chatArea" style={{height: "50vh", overflowY: "auto", maxWidth: "300px", margin: "15px auto", padding: "5px", border: "2px solid black", whiteSpace: "pre-wrap"}}>
         {msgs.length > 0 ? msgs.map((msg, idx) => {
           return <p key={idx} style={{overflowWrap: "break-word"}}><strong>{msg.user.username}</strong><br></br>{msg.content}</p>
         }): <></>}
@@ -122,7 +122,7 @@ const Room = (props) => {
         <button
           type="submit"
           style={{
-            backgroundColor: "blue",
+            backgroundColor: "#0808e5",
             padding: "5px",
             borderRadius: "4px",
             color: "white",
