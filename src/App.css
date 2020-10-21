@@ -61,7 +61,7 @@ form {
 }
 
 .profRoomsDiv {
-  height: calc(100vh - 385px);
+  height: calc(100vh - 400px);
 }
 
 @media only screen and (max-height: 500px) {

@@ -56,7 +56,7 @@ function CreateRoom(props) {
       <h1>Create Room</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <input type="text" name="roomname" value={roomname} onChange={handleRoomname} placeholder="Room Name" />
+          <input style={{margin: "10px"}} type="text" name="roomname" value={roomname} onChange={handleRoomname} placeholder="Room Name" />
         </div>
         <div>
           <input type="radio" id="public" name="pubPriv" value="true" onChange={handleRoomIsPub} checked={roomIsPub} />
@@ -67,7 +67,7 @@ function CreateRoom(props) {
           <label htmlFor="private">Private</label>
         </div>
         <div>
-          <input type="password" name="roompassword" value={roompassword} onChange={handleRoompassword} placeholder="Room Password" disabled={roomIsPub} />
+          <input style={{margin: "10px"}} type="password" name="roompassword" value={roompassword} onChange={handleRoompassword} placeholder="Password If Private" disabled={roomIsPub} />
         </div>
         <button
           type="submit"

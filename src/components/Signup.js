@@ -54,16 +54,16 @@ const Signup = () => {
           </div>
           <form onSubmit={handleSubmit}>
             <div>
-              <input type="text" name="username" value={username} onChange={handleUsername} placeholder="Username" />
+              <input style={{margin: "5px"}} type="text" name="username" value={username} onChange={handleUsername} placeholder="Username" />
             </div>
             <div>
-              <input type="password" name="password" value={password} onChange={handlePassword} placeholder="Password" />
+              <input style={{margin: "5px"}} type="password" name="password" value={password} onChange={handlePassword} placeholder="Password" />
             </div>
             <div>
-              <input type="password" name="confirmPassword" value={confirmPassword} onChange={handleConfirmPassword} placeholder="Confirm Password" />
+              <input style={{margin: "5px"}} type="password" name="confirmPassword" value={confirmPassword} onChange={handleConfirmPassword} placeholder="Confirm Password" />
             </div>
             <div>
-              <input type="email" name="email" value={email} onChange={handleEmail} placeholder="Email" />
+              <input style={{margin: "5px"}} type="email" name="email" value={email} onChange={handleEmail} placeholder="Email" />
             </div>
             <button
               type="submit"

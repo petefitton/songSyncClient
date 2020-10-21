@@ -47,10 +47,10 @@ const Login = (props) => {
           </div>
           <form onSubmit={handleSubmit}>
             <div>
-              <input type="text" name="username" value={username} onChange={handleUsername} placeholder="Username" />
+              <input style={{margin: "5px"}} type="text" name="username" value={username} onChange={handleUsername} placeholder="Username" />
             </div>
             <div>
-              <input type="password" name="password" value={password} onChange={handlePassword} placeholder="Password" />
+              <input style={{margin: "5px"}} type="password" name="password" value={password} onChange={handlePassword} placeholder="Password" />
             </div>
             <button
               type="submit"

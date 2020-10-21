@@ -40,7 +40,9 @@ function JoinRoomPassword(props) {
         </div>
         <JoinBtn />
       </form>
-      <CancelBtn />
+      <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+        <CancelBtn />
+      </div>
       {err}
     </>
   )

@@ -71,20 +71,52 @@ function UpdateInfo(props) {
   return (
     <>
       <h1>Update Info</h1>
-      <h3 style={{textAlign: "center"}}>
-        {initInfo ? initInfo.username : ""}
-      </h3>
       <p style={{textAlign: "center"}}>
-        {initInfo ? initInfo.email : ""}
+        {initInfo.username ? "Username: " + initInfo.username : ""}
+      </p>
+      <p style={{textAlign: "center"}}>
+        {initInfo.username ? initInfo.email ? "Email: " + initInfo.email : "No Email Added" : ""}
       </p>
       <form onSubmit={handlePasswordSub}>
-        <input type="password" placeholder="Change Password" onChange={handlePassword}></input>
-        <input type="password" placeholder="Confirm Password" onChange={handlePasswordConfirm}></input>
-        <button type="submit">Update Password</button>
+        <input style={{margin: "10px"}} type="password" placeholder="Change Password" onChange={handlePassword}></input>
+        <input style={{margin: "10px"}} type="password" placeholder="Confirm Password" onChange={handlePasswordConfirm}></input>
+        <button
+          type="submit"
+          style={{
+            backgroundColor: "#0808e5",
+            padding: "5px",
+            borderRadius: "4px",
+            color: "white",
+            textDecoration: "none",
+            width: "220px",
+            textAlign: "center",
+            margin: "6px",
+            overflowWrap: "break-word",
+            border: "none",
+            fontSize: "16px",
+            marginTop: "20px"
+          }}
+        >Update Password</button>
       </form>
       <form onSubmit={handleEmailSub}>
-        <input placeholder="Change Email" onChange={handleEmail}></input>
-        <button type="submit">Update Email</button>
+        <input style={{margin: "10px"}} placeholder="Change Email" onChange={handleEmail}></input>
+        <button
+          type="submit"
+          style={{
+            backgroundColor: "#0808e5",
+            padding: "5px",
+            borderRadius: "4px",
+            color: "white",
+            textDecoration: "none",
+            width: "220px",
+            textAlign: "center",
+            margin: "6px",
+            overflowWrap: "break-word",
+            border: "none",
+            fontSize: "16px",
+            marginTop: "20px"
+          }}
+        >Update Email</button>
       </form>
       {err}
       <div style={{display: "flex", justifyContent: "center"}}>
