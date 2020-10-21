@@ -5,6 +5,9 @@ Deployed Website Link: https://songsyncapp.herokuapp.com/
 Github Server Link: https://github.com/petefitton/songSyncServer/tree/main
 
 ## Screenshots
+![Signup Screenshot](/songsync-signup.png)
+![Profile Screenshot](/songsync-profile.png)
+![Chatroom Screenshot](/songsync-chatroom.png)
 
 ## Technologies Used
 
