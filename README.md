@@ -8,11 +8,35 @@ Github Server Link:
 
 ## Technologies Used
 
+Song Sync is built with a decoupled client/server architecture.  It uses:
+
+SQL/PostGres with Sequelize
+Express
+React
+Node
+Socket.IO
+React Router Dom
+Styled Components
+Bcrypt
+JSON Web Tokens
+Passport
+Axios
+
 ## Planning
 
 #### Elevator Pitch
 
+Song Sync is a chatroom platform for songwriters who want to connect.
+
 #### User Stories
+
+As a user, I want to view and subscribe to existing chatrooms.
+As a user, I want to create an account for this web app.
+As a user, I want to update my account information.
+As a user, I want to create new chatrooms.
+As a user, I want to restrict who can join one of my chatrooms.
+As a user, I want to unsubscribe from chatrooms.
+As a user, I want to view public chatrooms.
 
 #### Initial Wireframes
 ![Wireframes](/SongSync.jpg)
