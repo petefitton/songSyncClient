@@ -27,7 +27,6 @@ React Router Dom
 Styled Components
 Bcrypt
 JSON Web Tokens
-Passport
 Axios
 
 ## Planning
